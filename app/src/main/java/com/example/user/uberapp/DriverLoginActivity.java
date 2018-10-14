@@ -38,7 +38,7 @@ public class DriverLoginActivity extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user!=null){
-                    Intent intent = new Intent(DriverLoginActivity.this, MapActiviry.class);
+                    Intent intent = new Intent(DriverLoginActivity.this, DriverMapsActivity.class);
                     startActivity(intent);
                     finish();
                     return;
@@ -70,6 +70,7 @@ public class DriverLoginActivity extends AppCompatActivity {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
                             current_user_db.setValue(true);
+
                         }
                     }
                 });
